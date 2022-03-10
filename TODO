@@ -1,0 +1,13 @@
+
+Todo:
+    ☐ Ajouter tailwind
+    ☐ Ajouter Vue js
+    ☐ Creer vue de base , route par defaut
+
+
+Bundle stateless connection :
+    ☐ Middleware authentification
+        ☐ Authentifcaiton cookie
+        ☐ Authentification token
+    ☐ Controlleur
+        ☐ Login : retour cookie encrypter
