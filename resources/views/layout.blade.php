@@ -17,11 +17,13 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body class="">
-       <div class="border-b-2 border-black px-1 md:px-2 py-1 md:py-5">
-                Header
-       </div>
-       <div class="text-center">
-           BODY
-       </div>
+        <div id="app">
+            <page-header></page-header>
+
+            <div class="text-center">
+                <router-view></router-view>
+            </div>
+        </div>
     </body>
+    <script src="{{mix('/js/app.js')}}"></script>
 </html>

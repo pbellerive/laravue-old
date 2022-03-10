@@ -1,3 +1,10 @@
+import { createApp } from 'vue';
+import router from './router';
+
+
+
+import PageHeader from './components/ui/page-header';
+
 window._ = require('lodash');
 
 /**
@@ -10,6 +17,15 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+const app = createApp({});
+
+app.use(router);
+
+app.component('page-header', PageHeader);
+
+
+
+app.mount('#app');
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
