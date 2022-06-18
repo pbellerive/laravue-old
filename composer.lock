@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "65e85f9f959c0b087110331754d451cf",
+    "content-hash": "e6d153e2ca54b54707212a8538b53999",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1328,6 +1328,34 @@
                 "source": "https://github.com/laravel/tinker/tree/v2.7.0"
             },
             "time": "2022-01-10T08:52:49+00:00"
+        },
+        {
+            "name": "laravue3/stateless",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../stateless",
+                "reference": "ed3079b571e40aff1237fa025f201a8d9a017536"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "laravue3\\Stateless\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Patrick Bellerive",
+                    "email": "p.bellerive@gmail.com"
+                }
+            ],
+            "description": "Stateless authentication package",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "league/commonmark",
@@ -7794,7 +7822,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "laravue3/stateless": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
