@@ -51,6 +51,11 @@ class ModuleBuilder extends Command
 
         $this->fullPath = config('moduleBuilder.basePath') . '/' . $this->pluralName;
 
+        if (file_exists($this->fullPath) && !$this->option('force')) {
+            $this->line('Folder already exists, are you fucking crazy ?');
+            return;
+        }
+
         @mkdir($this->fullPath);
 
         $this->createProvider();
@@ -60,10 +65,11 @@ class ModuleBuilder extends Command
             // $this->input->setOption('seed', true);
             $this->input->setOption('migration', true);
             $this->input->setOption('model', true);
-            $this->input->setOption('repository', true);
             $this->input->setOption('controller', true);
             $this->input->setOption('policy', true);
+            $this->input->setOption('repository', true);
             $this->input->setOption('resource', true);
+            $this->input->setOption('seed', true);
             $this->input->setOption('viewjs', true);
         }
 
@@ -83,16 +89,21 @@ class ModuleBuilder extends Command
             $this->createModel();
         }
 
-        if ($this->option('repository')) {
-            $this->createRepository();
-        }
-
         if ($this->option('policy')) {
             $this->createPolicy();
         }
 
+        if ($this->option('repository')) {
+            $this->createRepository();
+        }
+
         if ($this->option('resource')) {
             $this->createResource();
+        }
+
+
+        if ($this->option('seed')) {
+            $this->createSeeder();
         }
 
         if ($this->option('viewjs')) {
@@ -164,8 +175,8 @@ class ModuleBuilder extends Command
     {
         $this->createFile(
             'provider',
-            ['{{ namespace }}', '{{ class }}'],
-            ['App\\' . $this->pluralName, $this->moduleName . 'ServiceProvider'],
+            ['{{ namespace }}', '{{ class }}', '{{ moduleName }}'],
+            ['App\\' . $this->pluralName, $this->moduleName . 'ServiceProvider', $this->pluralName],
             $this->fullPath . '/' . $this->moduleName . 'ServiceProvider.php');
 
     }
@@ -178,6 +189,20 @@ class ModuleBuilder extends Command
             ['{{ namespace }}', '{{ class }}', '{{ modelVariable }}'],
             ['App\\' . $this->pluralName, $this->moduleName . 'ResourceCollection', $this->moduleName],
             $this->fullPath . '/' . $this->moduleName . 'ResourceCollection.php');
+    }
+
+    public function createSeeder()
+    {
+        $directory = $this->fullPath . '/seeders';
+        @mkdir($directory);
+
+        $path = $directory . '/' . $this->moduleName . 'Seeder.php';
+
+        $this->createFile(
+            'seeder',
+            ['{{ class }}'],
+            [$this->moduleName],
+            $path);
     }
 
     function createVuejsModule()
@@ -228,11 +253,11 @@ class ModuleBuilder extends Command
             ['all', 'a', InputOption::VALUE_NONE, 'Generate a migration, seeder, factory, policy, and resource controller for the model'],
             ['controller', 'c', InputOption::VALUE_NONE, 'Create a new controller for the model'],
             ['factory', 'f', InputOption::VALUE_NONE, 'Create a new factory for the model'],
-            // ['force', null, InputOption::VALUE_NONE, 'Create the class even if the model already exists'],
+            ['force', null, InputOption::VALUE_NONE, 'Create the class even if the model already exists'],
             ['migration', 'm', InputOption::VALUE_NONE, 'Create a new migration file for the model'],
             ['model', 'M', InputOption::VALUE_NONE, 'Create a new model file '],
             ['policy', null, InputOption::VALUE_NONE, 'Create a new policy for the model'],
-            // ['seed', 's', InputOption::VALUE_NONE, 'Create a new seeder for the model'],
+            ['seed', 's', InputOption::VALUE_NONE, 'Create a new seeder for the model'],
             ['resource', 'r', InputOption::VALUE_NONE, 'Indicates if the generated controller should be a resource controller'],
             ['repository', 'l', InputOption::VALUE_NONE, 'Create new repository class for the model'],
             ['viewjs', 'j', InputOption::VALUE_NONE, 'Create new vue folder for the module'],

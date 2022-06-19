@@ -1,10 +1,10 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\ModuleAs;
 
 use Illuminate\Support\ServiceProvider;
 
-class {{ class }} extends ServiceProvider
+class ModuleAServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -23,6 +23,6 @@ class {{ class }} extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__ . '/{{ moduleName }}/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/ModuleAs/migrations');
     }
 }
