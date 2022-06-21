@@ -19605,8 +19605,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup() {
-    var store = (0,_store_main__WEBPACK_IMPORTED_MODULE_0__.useStore)();
-    store.isAuthenticated = true;
+    var store = (0,_store_main__WEBPACK_IMPORTED_MODULE_0__.useStore)(); // store.isAuthenticated = true;
+
     return {};
   }
 });
@@ -19925,7 +19925,8 @@ var routes = [{
   component: _components_pages_about__WEBPACK_IMPORTED_MODULE_1__["default"]
 }, {
   path: '/login',
-  component: _components_pages_login__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _components_pages_login__WEBPACK_IMPORTED_MODULE_3__["default"],
+  name: 'Login'
 } // { path: '/about', component: About },
 ];
 var router = vue_router__WEBPACK_IMPORTED_MODULE_4__.createRouter({
@@ -19935,14 +19936,20 @@ var router = vue_router__WEBPACK_IMPORTED_MODULE_4__.createRouter({
 
 });
 var pinia = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.createPinia)();
-var store = (0,_store_main__WEBPACK_IMPORTED_MODULE_0__.useStore)(pinia); // router.beforeEach((to, from) => {
-//   // ...
-//   // explicitly return false to cancel the navigation
-//   if (!store.isAuthenticated) {
-//     return '/login'
-//   }
-// });
+var store = (0,_store_main__WEBPACK_IMPORTED_MODULE_0__.useStore)(pinia);
+router.beforeEach(function (to, from, next) {
+  // ...
+  // explicitly return false to cancel the navigation
+  debugger;
 
+  if (!store.isAuthenticated && to.name !== 'Login') {
+    next({
+      name: 'Login'
+    });
+  }
+
+  next();
+});
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
 
 /***/ }),

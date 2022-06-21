@@ -9,7 +9,7 @@ import Login from './components/pages/login';
 const routes = [
   { path: '/', component: Home },
   { path: '/about', component: About },
-  { path: '/login', component: Login },
+  { path: '/login', component: Login, name: 'Login' },
   // { path: '/about', component: About },
 ]
 
@@ -22,13 +22,16 @@ const router = VueRouter.createRouter({
 const pinia = createPinia()
 const store =  useStore(pinia);
 
-// router.beforeEach((to, from) => {
-//   // ...
-//   // explicitly return false to cancel the navigation
-//   if (!store.isAuthenticated) {
-//     return '/login'
-//   }
-// });
+router.beforeEach((to, from, next) => {
+  // ...
+  // explicitly return false to cancel the navigation
+  debugger;
+  if (!store.isAuthenticated && to.name !== 'Login') {
+    next({name: 'Login'})
+  }
+
+  next();
+});
 
 export default router;
 

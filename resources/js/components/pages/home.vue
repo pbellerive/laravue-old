@@ -12,7 +12,7 @@ export default {
 
 
         let store = useStore();
-        store.isAuthenticated = true;
+        // store.isAuthenticated = true;
         return {}
     }
 }
