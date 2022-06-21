@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::any('{all}', function () {
+Route::any('{all?}', function () {
     return view('layout');
 });

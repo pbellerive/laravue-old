@@ -14,7 +14,7 @@ class ModuleBuilderProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-             './ModuleBuilder/config.php',
+             __DIR__.'/../ModuleBuilder/config.php',
             'moduleBuilder'
         );
 

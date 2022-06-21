@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('login', '\Laravue3\Stateless\Controllers\LoginController@authenticate');
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('stateless')->get('/user', function (Request $request) {
     return $request->user();
 });
 

@@ -4,6 +4,7 @@ import router from './router';
 
 
 import PageHeader from './components/ui/page-header';
+import axios from 'axios';
 
 window._ = require('lodash');
 
@@ -17,13 +18,45 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+axios.defaults.baseURL = 'api';
+
+let exceptRoutesName = [
+  'login',
+  'register',
+  'home',
+  // 'root',
+  'forgot-password',
+  'reset-password',
+  '404'
+]
+
+axios.interceptors.response.use(function (response) {
+  return response
+}, function (error) {
+  let except = exceptRoutesName.findIndex((element) => {
+    return element == router.currentRoute.name;
+  }) == -1;
+
+  if (error.response.status === 401 && except) {
+    // store.commit('session/logout');
+    // localStorage.token = undefined;
+    router.push('/')
+  }
+  return Promise.reject(error)
+})
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+import { createPinia } from 'pinia'
+const pinia = createPinia()
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 const app = createApp({});
 
+app.use(pinia)
 app.use(router);
 
 app.component('page-header', PageHeader);
-
-
 
 app.mount('#app');
 /**

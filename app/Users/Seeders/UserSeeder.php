@@ -1,19 +1,20 @@
 <?php
 
-namespace Database\Seeders;
+namespace App\Users\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Users\User;
 
-class DatabaseSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call('App\Users\Seeders\UserSeeder');
+        User::factory()->count(5)->create();
     }
 }

@@ -5,10 +5,14 @@
 </template>
 
 <script>
+import { useStore } from '../../store/main'
+
 export default {
     setup () {
 
 
+        let store = useStore();
+        store.isAuthenticated = true;
         return {}
     }
 }
