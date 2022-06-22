@@ -1336,16 +1336,16 @@
         },
         {
             "name": "laravue3/stateless",
-            "version": "1.0.1",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pbellerive/stateless_middleware.git",
-                "reference": "a0f8e3b94f27735a82fa718a4b94bc07c2c47d4d"
+                "reference": "ce07cfbdd0c3c704afa72de11965cec3df287a88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pbellerive/stateless_middleware/zipball/a0f8e3b94f27735a82fa718a4b94bc07c2c47d4d",
-                "reference": "a0f8e3b94f27735a82fa718a4b94bc07c2c47d4d",
+                "url": "https://api.github.com/repos/pbellerive/stateless_middleware/zipball/ce07cfbdd0c3c704afa72de11965cec3df287a88",
+                "reference": "ce07cfbdd0c3c704afa72de11965cec3df287a88",
                 "shasum": ""
             },
             "require-dev": {
@@ -1379,9 +1379,9 @@
             "description": "Stateless authentication package",
             "support": {
                 "issues": "https://github.com/pbellerive/stateless_middleware/issues",
-                "source": "https://github.com/pbellerive/stateless_middleware/tree/1.0.1"
+                "source": "https://github.com/pbellerive/stateless_middleware/tree/1.0.6"
             },
-            "time": "2022-06-22T09:42:12+00:00"
+            "time": "2022-06-22T20:13:30+00:00"
         },
         {
             "name": "league/commonmark",

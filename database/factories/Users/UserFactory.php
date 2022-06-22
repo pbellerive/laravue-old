@@ -19,11 +19,11 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
+            'first_name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => password_hash('123456', PASSWORD_BCRYPT), // password
-            'remember_token' => Str::random(10),
         ];
     }
 

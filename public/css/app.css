@@ -470,9 +470,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-5 {
   margin-top: 1.25rem;
 }
-.inline {
-  display: inline;
-}
 .flex {
   display: flex;
 }
@@ -517,6 +514,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
 }
 .flex-col {
   flex-direction: column;
@@ -595,6 +595,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pt-8 {
   padding-top: 2rem;
+}
+.pr-5 {
+  padding-right: 1.25rem;
 }
 .text-center {
   text-align: center;

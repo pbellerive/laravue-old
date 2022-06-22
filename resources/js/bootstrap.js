@@ -40,7 +40,7 @@ axios.interceptors.response.use(function (response) {
   if (error.response.status === 401 && except) {
     // store.commit('session/logout');
     // localStorage.token = undefined;
-    router.push('/')
+    router.push('/login')
   }
   return Promise.reject(error)
 })

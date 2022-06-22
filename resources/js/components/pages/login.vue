@@ -38,8 +38,6 @@ export default {
     methods: {
         login() {
             axios.post('login', this.credentials).then(response => {
-                debugger
-
                 this.store.$patch({
                     isAuthenticated: true,
                     user: response.data.user
