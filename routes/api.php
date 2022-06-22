@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 Route::post('login', '\Laravue3\Stateless\Controllers\LoginController@authenticate');
 
-Route::middleware('stateless')->get('/user', function (Request $request) {
+Route::middleware(['stateless'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+Route::middleware(['stateless'])->group(function($router) {
+    Route::get('check-auth', '\Laravue3\Stateless\Controllers\LoginController@checkLogin');
+});

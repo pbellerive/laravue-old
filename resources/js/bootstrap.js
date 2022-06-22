@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import router from './router';
+import {router, pinia} from './router';
 
 
 
@@ -45,8 +45,8 @@ axios.interceptors.response.use(function (response) {
   return Promise.reject(error)
 })
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-import { createPinia } from 'pinia'
-const pinia = createPinia()
+// import { createPinia } from 'pinia'
+// const pinia = createPinia()
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////

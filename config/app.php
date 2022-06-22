@@ -177,7 +177,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        ModuleBuilder\ModuleBuilderProvider::class
+        ModuleBuilder\ModuleBuilderProvider::class,
+        \Laravue3\Stateless\StatelessServiceProvider::class
     ],
 
     /*

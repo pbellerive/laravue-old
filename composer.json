@@ -10,7 +10,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.0",
         "laravel/tinker": "^2.7",
-        "laravue3/stateless": "dev-master"
+        "laravue3/stateless": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
@@ -55,10 +55,6 @@
         }
     },
     "repositories": [
-        {
-            "type": "path",
-            "url": "../stateless"
-        }
     ],
     "config": {
         "optimize-autoloader": true,

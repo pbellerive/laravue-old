@@ -5,6 +5,7 @@ import { createPinia } from 'pinia'
 import About from './components/pages/about';
 import Home from './components/pages/home';
 import Login from './components/pages/login';
+import axios from 'axios';
 
 const routes = [
   { path: '/', component: Home },
@@ -20,18 +21,25 @@ const router = VueRouter.createRouter({
 });
 
 const pinia = createPinia()
-const store =  useStore(pinia);
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
+  const store =  useStore(pinia);
   // ...
   // explicitly return false to cancel the navigation
   debugger;
   if (!store.isAuthenticated && to.name !== 'Login') {
     next({name: 'Login'})
+  } else {
+    let response = await axios.get('check-auth');
+    if (response.status === 200) {
+      store.$patch({
+        'isAuthenticated': true
+      });
+    }
   }
 
   next();
 });
 
-export default router;
+export {router, pinia};
 
