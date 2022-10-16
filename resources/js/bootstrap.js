@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import {router, pinia} from './router';
-
+import vsettings from 'laravue-ui-components/src/index.js';
+import LaravueSettings from '../../laravue-settings';
 
 
 import PageHeader from './components/ui/page-header';
@@ -55,6 +56,7 @@ const app = createApp({});
 
 app.use(pinia)
 app.use(router);
+app.use(vsettings, LaravueSettings);
 
 app.component('page-header', PageHeader);
 

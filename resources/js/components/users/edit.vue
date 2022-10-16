@@ -3,23 +3,23 @@
         <div class="">
             <div class="flex gap-2">
                 <label for="">FirstName</label>
-                <input v-model="user.first_name"/>
+                <v-input v-model="user.first_name"/>
             </div>
             <div class="flex gap-2">
                 <label for="">last name</label>
-                <input v-model="user.last_name"/>
+                <v-input v-model="user.last_name"/>
             </div>
             <div class="flex gap-2">
                 <label for="">email</label>
-                <input v-model="user.email"/>
+                <v-input v-model="user.email"/>
             </div>
             <div class="flex gap-2">
                 <label for="">password</label>
-                <input v-model="user.password"/>
+                <v-input v-model="user.password"/>
             </div>
             <div class="flex gap-2">
                 <label for="">password confirm</label>
-                <input v-model="user.password_confirm"/>
+                <v-input v-model="user.password_confirm"/>
             </div>
         </div>
         <div>
@@ -29,10 +29,12 @@
 </template>
 
 <script>
-import axios from 'axios'
+import {VInput} from 'laravue-ui-components/src/components';
 
     export default {
-
+      components: {
+        'v-input': VInput,
+      },
         created () {
             this.fetchCurrentUser();
         },

@@ -10,6 +10,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.0",
         "laravel/tinker": "^2.7",
+        "laravue3/laravel-module-builder": "^0.0.4",
         "laravue3/stateless": "^1.0"
     },
     "require-dev": {
@@ -25,8 +26,7 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/",
-            "ModuleBuilder\\": "ModuleBuilder/"
+            "Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
@@ -51,6 +51,9 @@
     },
     "extra": {
         "laravel": {
+            "provider": [
+                "Laravue3\\ModuleBuilder\\ModuleBuilderServiceProvider"
+            ],
             "dont-discover": []
         }
     },
